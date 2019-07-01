@@ -1,0 +1,57 @@
+<div class="col-sm-12">
+  <div class="card text-left">
+    <div class="card-body">
+      <h4 class="card-title">Formulario</h4>
+      <form name="form" [(formGroup)]="form" (ngSubmit)="savePersona()">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" class="form-control" 
+                 formControlName="nombre" 
+                 [ngClass]="{'is-invalid': form.get('nombre').touched && form.get('nombre').invalid, 'is-valid': form.get('nombre').touched && form.get('nombre').valid}"/>
+          <div class="invalid-feedback">
+            <ul>
+              <li>El nombre es obligatorio.</li>
+              <li>Sólo se permiten carácteres alfabéticos</li>
+              <li>Mínimo una longitud de dos (2)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido:</label>
+            <input type="text" class="form-control" formControlName="apellido" 
+                   [ngClass]="{'is-invalid': form.get('apellido').touched && form.get('apellido').invalid, 'is-valid': form.get('apellido').touched && form.get('apellido').valid}">
+            <div class="invalid-feedback">
+              <ul>
+                <li>El apellido es obligatorio.</li>
+                <li>Sólo se permiten carácteres alfabéticos</li>
+                <li>Mínimo una longitud de dos (2)</li>
+              </ul>
+            </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico:</label>
+          <input type="text" class="form-control" formControlName="correo" 
+                 [ngClass]="{'is-invalid': form.get('correo').touched && form.get('correo').invalid, 'is-valid': form.get('correo').touched && form.get('correo').valid}">
+          <div class="invalid-feedback">
+            <ul>
+              <li>El correo electrónico obligatorio.</li>
+              <li>Debe tratarse de un correo válido.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Contraseña:</label>
+          <input type="text" class="form-control" formControlName="contrasena" 
+                 [ngClass]="{'is-invalid': form.get('contrasena').touched && form.get('contrasena').invalid, 'is-valid': form.get('contrasena').touched && form.get('contrasena').valid}">
+          <div class="invalid-feedback">
+            <ul>
+              <li>La contraseña es obligatoria</li>
+              <li>Mínimo una longitud de seis (6)</li>
+            </ul>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Guardar</button>
+      </form>
+    </div>
+  </div>
+</div>
